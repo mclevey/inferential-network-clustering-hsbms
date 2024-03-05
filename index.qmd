@@ -1,6 +1,7 @@
 ---
 title: "Inferential Network Clustering with Hierarchical Bayesian Stochastic Blockmodels"
 subtitle: "Published as Chapter 30 in John McLevey, John Scott, and Peter J. Carrington (eds) 2023. *The Sage Handbook of Social Network Analysis (Volume 2)*. London, UK: Sage."
+# output-dir: "_docs"
 authors:
   - name: "Pierson Browne"
     affiliations: 
