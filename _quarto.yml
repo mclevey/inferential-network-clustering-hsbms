@@ -1,0 +1,70 @@
+project:
+  type: manuscript
+
+manuscript:
+  article: index.qmd
+
+format:
+  html:
+    comments:
+      hypothesis: false
+  pdf: 
+    pdf-engine: xelatex
+    classoption: ["twoside", "open=any"]
+    papersize: A4
+    keep-tex: false
+    mainfont: Minion Pro
+    sansfont: Minion Pro 
+    monofont: Menlo
+    mathfont: KpMath-Regular
+    fontsize: 12pt
+    indent: false
+    number-sections: true
+    toc: false
+    toc-depth: 3
+    toc-title: Contents
+    lof: false
+    lot: false
+    fig-align: left
+    geometry:
+      - top=30mm
+      - left=30mm
+      - right=30mm
+      - heightrounded
+    linkcolor: Black 
+    urlcolor: Black 
+    citecolor: Black
+    toccolor: Black
+    link-citations: true
+    header-includes:
+      # Font Styling for KOMA-Script Classes
+      - \setkomafont{title}{\normalfont\huge\bfseries}
+      - \setkomafont{subtitle}{\normalfont\large}
+      - \setkomafont{section}{\normalfont\large\bfseries\bfseries\MakeUppercase}
+      - \setkomafont{subsection}{\normalfont\large\itshape}
+      - \setkomafont{subsubsection}{\normalfont\large}
+      - \setkomafont{author}{\normalsize}
+      - \setkomafont{date}{\normalsize}
+      # Footnote Styling
+      - \usepackage{scrextend} 
+      - \deffootnote[1.8em]{0pt}{1.6em}{\makebox[1.8em][l]{{\thefootnotemark.}}} 
+      - \setlength{\footnotesep}{0.5cm}
+      # Headers (See https://www.dickimaw-books.com/latex/thesis/html/newpagestyle.html)
+      - \usepackage[headsepline]{scrlayer-scrpage}
+      - \clearpairofpagestyles
+      - \ohead{\emph{The SAGE Handbook of Social Network Analysis} (V2)}
+      - \ihead{PREPRINT}
+      - \ofoot{Browne, Crick, and McLevey (2023)}
+      - \ifoot{\pagemark}
+      # Page Numbering
+      - \renewcommand*\pagemark{{\usekomafont{pagenumber}Page\nobreakspace\thepage}}
+      - \addtokomafont{pageheadfoot}{\upshape}
+      # Left Align Title, Subtitle, Author, and Date
+      - \usepackage{xpatch}
+      - \makeatletter
+      - \xpatchcmd{\@maketitle}{\begin{center}}{\begin{flushleft}}{}{}
+      - \xpatchcmd{\@maketitle}{\end{center}}{\end{flushleft}}{}{}
+      - \xpatchcmd{\@maketitle}{\begin{tabular}[t]{c}}{\begin{tabular}[t]{@{}l@{}}}{}{}
+      - \makeatother
+execute:
+  freeze: true
